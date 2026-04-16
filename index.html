@@ -4,94 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voided Studios</title>
+
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
       font-family: Arial, sans-serif;
-      background: #0f0f14;
+    }
+
+    body {
+      background: #0b0b12;
       color: white;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 40px;
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      background: #1a1a24;
+      background: radial-gradient(circle at top, #1b1b2e, #0b0b12);
+      animation: fadeIn 1.2s ease-in;
     }
 
-    header h1 {
-      font-size: 40px;
-      margin: 0;
+    .hero h1 {
+      font-size: 60px;
+      background: linear-gradient(90deg, #7aa2ff, #b07bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    header p {
+    .hero p {
       color: #aaa;
       margin-top: 10px;
+      font-size: 18px;
     }
 
+    .btn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #7aa2ff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #9bb8ff;
+    }
+
+    /* SECTIONS */
     section {
-      padding: 40px;
-      max-width: 900px;
+      padding: 80px 20px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .card {
-      background: #1a1a24;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
     }
 
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #151525;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1px solid #222;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #7aa2ff;
+      box-shadow: 0 0 20px rgba(122,162,255,0.2);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10,10,18,0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 20px;
-      color: #777;
-      background: #1a1a24;
-      margin-top: 40px;
+      padding: 30px;
+      color: #666;
+      border-top: 1px solid #222;
     }
 
-    a {
-      color: #7aa2ff;
-      text-decoration: none;
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#license">License</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
   <h1>Voided Studios</h1>
   <p>Built by AgentXCO2 for creative intelligence and next generation interaction</p>
-</header>
+  <button class="btn" onclick="document.getElementById('about').scrollIntoView()">Explore</button>
+</div>
 
-<section>
-
+<section id="about">
+  <h2>About</h2>
   <div class="card">
-    <h2>About</h2>
-    <p>Voided Studios is a developer studio creating AI systems, tools, and experimental software projects.</p>
+    Voided Studios is a development studio focused on AI systems, experimental tools, and next-generation software.
   </div>
+</section>
 
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">VoidGPT — AI assistant system</div>
+    <div class="card">Void APIs — backend tools and services</div>
+    <div class="card">Void Defender — security systems</div>
+  </div>
+</section>
+
+<section id="license">
+  <h2>Licensing</h2>
   <div class="card">
-    <h2>Projects</h2>
-    <p>VoidGPT - AI assistant system</p>
-    <p>Void APIs - backend tools and services</p>
-    <p>Void Defender - security system tools</p>
+    All Voided Studios projects are licensed under Mozilla Public License Version 2.0 unless stated otherwise.
+    <br><br>
+    <a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank">View MPL 2.0</a>
   </div>
+</section>
 
+<section id="contact">
+  <h2>Contact</h2>
   <div class="card">
-    <h2>Licensing</h2>
-    <p>All Voided Studios projects are licensed under Mozilla Public License Version 2.0 unless stated otherwise.</p>
-    <p>View license details: <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL 2.0</a></p>
+    Studio Owner: AgentXCO2<br>
+    Status: Active Development
   </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Studio Owner: AgentXCO2</p>
-  </div>
-
 </section>
 
 <footer>
-  © 2026 Voided Studios
+  © 2026 Voided Studios. All rights reserved.
 </footer>
 
 </body>
